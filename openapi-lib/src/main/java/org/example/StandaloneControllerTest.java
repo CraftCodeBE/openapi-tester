@@ -1,35 +1,35 @@
+package org.example;
+
 import com.atlassian.oai.validator.OpenApiInteractionValidator;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.DefaultMockMvcBuilder;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
+import org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder;
 
 import java.nio.file.Path;
 
 import static com.atlassian.oai.validator.mockmvc.OpenApiValidationMatchers.openApi;
 
-@ExtendWith(SpringExtension.class)
-public abstract class SpringContextControllerTest {
-    protected MockMvc mockMvc;
+public abstract class StandaloneControllerTest {
 
-    @Autowired
-    WebApplicationContext context;
+    protected MockMvc mockMvc;
 
     OpenApiInteractionValidator validator;
 
     @BeforeEach
-    void setUp() {
+    void setUp(){
+        if(mockMvc == null){
+            mockMvc = mockMvc(assignControllers());
+        }
+    }
+
+    private MockMvc mockMvc(Object... controllers) {
         validator = validationHolder(openApiFilePath());
 
-        if (mockMvc == null) {
-            mockMvc = mockMvcConfig(MockMvcBuilders.webAppContextSetup(context)
-                    .alwaysExpect(openApi().isValid(validator))
-            ).build();
-        }
+        return mockMvcConfig(MockMvcBuilders
+                .standaloneSetup(controllers)
+                .alwaysExpect(openApi().isValid(validator))
+        ).build();
     }
 
     private OpenApiInteractionValidator validationHolder(Path openApiFilePath) {
@@ -43,10 +43,12 @@ public abstract class SpringContextControllerTest {
         return validatorModifier;
     }
 
-    private DefaultMockMvcBuilder mockMvcConfig(DefaultMockMvcBuilder mockMvcModifier) {
+    private StandaloneMockMvcBuilder mockMvcConfig(StandaloneMockMvcBuilder mockMvcModifier) {
         return mockMvcModifier;
     }
 
     protected abstract Path openApiFilePath();
+
+    protected abstract Object[] assignControllers();
 
 }

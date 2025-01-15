@@ -1,0 +1,48 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "API Title",
+    "version": "1.0"
+  },
+  "paths": {
+    "/demo": {
+      "get": {
+        "summary": "Demo endpoint",
+        "operationId": "someDemo",
+        "parameters": [
+          {
+            "name": "requiredParam",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "A required parameter"
+          },
+          {
+            "name": "optionalParam",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "An optional parameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "Hello requiredParam optionalParam"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
