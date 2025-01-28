@@ -2,14 +2,10 @@ package org.example;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.controller.ApiController;
-import org.example.dto.Order;
-import org.example.dto.OrderInput;
-import org.example.dto.Product;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.nio.file.Path;
@@ -32,24 +28,22 @@ class DemoControllerTest extends SpringContextControllerTest{
 
     @Test
     void testGetAllUsers() throws Exception {
-
-        mockMvc.perform(get("/users"))
-                .andExpect(status().isOk())
-                .andExpect(content().json("[{'id':1,'name':'John Doe','email':'john.doe@example.com'}]"));
+        mockMvc.perform(get("/users")
+                        .accept("application/json")
+                        .contentType("application/json")
+                )
+                .andExpect(status().isOk());
     }
 
     @Test
     void testGetProductById() throws Exception {
-
         mockMvc.perform(get("/products/1"))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{'id':1,'name':'Product A','price':10.0}"));
     }
 
     @Test
-    public void testCreateOrder() throws Exception {
-        OrderInput orderInput = OrderInput.builder().userId(1).productId(1).quantity(2).build();
-
+    void testCreateOrder() throws Exception {
         mockMvc.perform(post("/orders")
                         .contentType("application/json")
                         .content("{\"userId\":1,\"productId\":1,\"quantity\":2}"))

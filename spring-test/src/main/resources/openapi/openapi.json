@@ -92,6 +92,7 @@
     "schemas": {
       "User": {
         "type": "object",
+        "required": ["id", "name", "email"],
         "properties": {
           "id": {
             "type": "integer"
@@ -106,6 +107,7 @@
       },
       "Product": {
         "type": "object",
+        "required": ["id", "name", "price"],
         "properties": {
           "id": {
             "type": "integer"
@@ -121,6 +123,7 @@
       },
       "OrderInput": {
         "type": "object",
+        "required": ["user_id", "product_id", "quantity"],
         "properties": {
           "user_id": {
             "type": "integer"
@@ -135,6 +138,7 @@
       },
       "Order": {
         "type": "object",
+        "required": ["id", "user_id", "product_id", "quantity", "total_amount"],
         "properties": {
           "id": {
             "type": "integer"
