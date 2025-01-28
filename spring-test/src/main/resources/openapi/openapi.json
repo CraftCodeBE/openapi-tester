@@ -59,17 +59,35 @@
     "/orders": {
       "post": {
         "summary": "Create a new order",
-        "requestBody": {
-          "description": "Order to create",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/OrderInput"
-              }
-            }
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "The ID of the user creating the order."
+          },
+          {
+            "name": "productId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "The ID of the product being ordered."
+          },
+          {
+            "name": "quantity",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "The quantity of the product being ordered."
           }
-        },
+        ],
         "responses": {
           "201": {
             "description": "Order created successfully",
@@ -121,38 +139,23 @@
           }
         }
       },
-      "OrderInput": {
-        "type": "object",
-        "required": ["user_id", "product_id", "quantity"],
-        "properties": {
-          "user_id": {
-            "type": "integer"
-          },
-          "product_id": {
-            "type": "integer"
-          },
-          "quantity": {
-            "type": "integer"
-          }
-        }
-      },
       "Order": {
         "type": "object",
-        "required": ["id", "user_id", "product_id", "quantity", "total_amount"],
+        "required": ["id", "userId", "productId", "quantity", "totalAmount"],
         "properties": {
           "id": {
             "type": "integer"
           },
-          "user_id": {
+          "userId": {
             "type": "integer"
           },
-          "product_id": {
+          "productId": {
             "type": "integer"
           },
           "quantity": {
             "type": "integer"
           },
-          "total_amount": {
+          "totalAmount": {
             "type": "number",
             "format": "float"
           }
