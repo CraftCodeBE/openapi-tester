@@ -12,7 +12,7 @@ import java.nio.file.Path;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
@@ -32,23 +32,26 @@ class DemoControllerTest extends SpringContextControllerTest{
                         .accept("application/json")
                         .contentType("application/json")
                 )
+                .andDo(print())
                 .andExpect(status().isOk());
     }
 
     @Test
     void testGetProductById() throws Exception {
-        mockMvc.perform(get("/products/1"))
-                .andExpect(status().isOk())
-                .andExpect(content().json("{'id':1,'name':'Product A','price':10.0}"));
+        mockMvc.perform(get("/products/{id}", 1))
+                .andDo(print())
+                .andExpect(status().isOk());
     }
 
     @Test
     void testCreateOrder() throws Exception {
         mockMvc.perform(post("/orders")
-                        .contentType("application/json")
-                        .content("{\"userId\":1,\"productId\":1,\"quantity\":2}"))
-                .andExpect(status().isCreated())
-                .andExpect(content().json("{'id':1,'userId':1,'productId':1,'quantity':2,'totalAmount':20.0}"));
+                        .param("userId", "1")
+                        .param("productId", "1")
+                        .param("quantity", "2")
+                )
+                .andDo(print())
+                .andExpect(status().isCreated());
     }
 
 

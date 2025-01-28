@@ -1,5 +1,6 @@
 package org.example.controller;
 
+import jakarta.websocket.server.PathParam;
 import lombok.extern.slf4j.Slf4j;
 import org.example.dto.Order;
 import org.example.dto.OrderInput;
@@ -13,29 +14,20 @@ public class ApiController {
 
     @GetMapping("/users")
     public ResponseEntity<String> getAllUsers() {
-//        return ResponseEntity.ok(List.of(
-//                User.builder()
-//                        .email("some@craftcode.be")
-//                        .name("CraftCode")
-//                        .id(1)
-//                        .build()
-//        ));
-        return ResponseEntity.ok("[{\"id\":1,\"name\":\"CraftCode\"}]");
+        return ResponseEntity.ok("");
     }
 
-    @GetMapping("/products/{id}")
-    public ResponseEntity<Product> getProductById(@PathVariable int id) {
+    @GetMapping(value = "/products/{id}", produces = "application/json")
+    public ResponseEntity<String> getProductById(@PathVariable int id) {
         // Implement logic to get a product by ID
-        return ResponseEntity.ok(Product.builder()
-                .build());
+        return ResponseEntity.ok("");
     }
 
-    @PostMapping("/orders")
-    public ResponseEntity<Order> createOrder(@RequestBody OrderInput orderInput) {
+    @PostMapping(value = "/orders", produces = "application/json")
+    public ResponseEntity<String> createOrder(@PathParam("userId") int userId) {
         // Implement logic to create a new order
         return ResponseEntity.status(201).body(
-                Order.builder()
-                        .build()
+                ""
         );
     }
 }
