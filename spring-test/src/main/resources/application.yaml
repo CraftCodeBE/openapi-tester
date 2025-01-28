@@ -1,0 +1,7 @@
+openapi.filepath: 'classpath:/openapi/openapi.json'
+
+logging:
+  level:
+    org.example: DEBUG
+  file:
+    name: logs/test.log
