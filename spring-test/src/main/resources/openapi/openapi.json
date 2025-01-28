@@ -123,12 +123,12 @@
       },
       "OrderInput": {
         "type": "object",
-        "required": ["user_id", "product_id", "quantity"],
+        "required": ["userId", "productId", "quantity"],
         "properties": {
-          "user_id": {
+          "userId": {
             "type": "integer"
           },
-          "product_id": {
+          "productId": {
             "type": "integer"
           },
           "quantity": {
@@ -138,21 +138,21 @@
       },
       "Order": {
         "type": "object",
-        "required": ["id", "user_id", "product_id", "quantity", "total_amount"],
+        "required": ["id", "userId", "productId", "quantity", "totalAmount"],
         "properties": {
           "id": {
             "type": "integer"
           },
-          "user_id": {
+          "userId": {
             "type": "integer"
           },
-          "product_id": {
+          "productId": {
             "type": "integer"
           },
           "quantity": {
             "type": "integer"
           },
-          "total_amount": {
+          "totalAmount": {
             "type": "number",
             "format": "float"
           }
