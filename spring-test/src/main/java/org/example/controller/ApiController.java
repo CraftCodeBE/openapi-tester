@@ -2,9 +2,11 @@ package org.example.controller;
 
 import jakarta.websocket.server.PathParam;
 import lombok.extern.slf4j.Slf4j;
-import org.example.dto.OrderInput;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Slf4j
@@ -21,7 +23,7 @@ public class ApiController {
         return ResponseEntity.ok("{\"id\":1,\"name\":\"Product A\",\"price\":10.0}");
     }
 
-    @PostMapping(value = "/orders", consumes = "application/json")
+    @PostMapping(value = "/orders", produces = "application/json")
     public ResponseEntity<String> createOrder(@PathParam("userId") int userId, @PathParam("productId") int productId, @PathParam("quantity") int quantity) {
         // Implement logic to create a new order
         return ResponseEntity.status(201).body(

@@ -59,17 +59,35 @@
     "/orders": {
       "post": {
         "summary": "Create a new order",
-        "requestBody": {
-          "description": "Order to create",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/OrderInput"
-              }
-            }
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "The ID of the user creating the order."
+          },
+          {
+            "name": "productId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "The ID of the product being ordered."
+          },
+          {
+            "name": "quantity",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "The quantity of the product being ordered."
           }
-        },
+        ],
         "responses": {
           "201": {
             "description": "Order created successfully",
@@ -118,21 +136,6 @@
           "price": {
             "type": "number",
             "format": "float"
-          }
-        }
-      },
-      "OrderInput": {
-        "type": "object",
-        "required": ["userId", "productId", "quantity"],
-        "properties": {
-          "userId": {
-            "type": "integer"
-          },
-          "productId": {
-            "type": "integer"
-          },
-          "quantity": {
-            "type": "integer"
           }
         }
       },
