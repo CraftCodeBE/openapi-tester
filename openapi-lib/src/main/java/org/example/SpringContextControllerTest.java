@@ -13,6 +13,9 @@ import org.springframework.web.context.WebApplicationContext;
 import java.nio.file.Path;
 
 import static com.atlassian.oai.validator.mockmvc.OpenApiValidationMatchers.openApi;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
 public abstract class SpringContextControllerTest {
@@ -24,9 +27,14 @@ public abstract class SpringContextControllerTest {
     OpenApiInteractionValidator validator;
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws Exception {
         validator = validationHolder(openApiFilePath());
-
+{
+        mockMvc.perform(post("/orders")
+                        .param("userId", "1")
+                )
+                .andExpect(status().isCreated());
+    }
         if (mockMvc == null) {
             mockMvc = mockMvcConfig(MockMvcBuilders.webAppContextSetup(context)
                     .alwaysExpect(openApi().isValid(validator))
@@ -41,11 +49,11 @@ public abstract class SpringContextControllerTest {
         ).build();
     }
 
-    private OpenApiInteractionValidator.Builder validatorConfig(OpenApiInteractionValidator.Builder validatorModifier) {
+    protected OpenApiInteractionValidator.Builder validatorConfig(OpenApiInteractionValidator.Builder validatorModifier) {
         return validatorModifier;
     }
 
-    private DefaultMockMvcBuilder mockMvcConfig(DefaultMockMvcBuilder mockMvcModifier) {
+    protected DefaultMockMvcBuilder mockMvcConfig(DefaultMockMvcBuilder mockMvcModifier) {
         return mockMvcModifier;
     }
 

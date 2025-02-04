@@ -47,12 +47,11 @@ class DemoControllerTest extends SpringContextControllerTest{
     void testCreateOrder() throws Exception {
         mockMvc.perform(post("/orders")
                         .param("userId", "1")
-                        .param("productId", "1")
-                        .param("quantity", "2")
                 )
                 .andDo(print())
                 .andExpect(status().isCreated());
     }
+
 
 
     @Override
