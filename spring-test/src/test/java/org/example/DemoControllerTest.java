@@ -1,11 +1,13 @@
 package org.example;
 
+import com.atlassian.oai.validator.OpenApiInteractionValidator;
 import lombok.extern.slf4j.Slf4j;
 import org.example.controller.ApiController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.web.servlet.setup.DefaultMockMvcBuilder;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.nio.file.Path;
@@ -54,6 +56,19 @@ class DemoControllerTest extends SpringContextControllerTest {
     }
 
 
+    @Override
+    protected DefaultMockMvcBuilder mockMvcConfig(DefaultMockMvcBuilder mockMvcModifier) {
+        // you can add more configuration here
+        return mockMvcModifier.alwaysDo(print());
+    }
+
+    @Override
+    protected OpenApiInteractionValidator.Builder validatorConfig(OpenApiInteractionValidator.Builder validatorModifier) {
+//        the same is possible for the validator. For example you could override the base path
+        return super.validatorConfig(validatorModifier)
+//                .withBasePathOverride("/api")
+                ;
+    }
 
     @Override
     protected Path openApiFilePath() {
