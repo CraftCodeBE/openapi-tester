@@ -41,11 +41,11 @@ public abstract class SpringContextControllerTest {
         ).build();
     }
 
-    private OpenApiInteractionValidator.Builder validatorConfig(OpenApiInteractionValidator.Builder validatorModifier) {
+    protected OpenApiInteractionValidator.Builder validatorConfig(OpenApiInteractionValidator.Builder validatorModifier) {
         return validatorModifier;
     }
 
-    private DefaultMockMvcBuilder mockMvcConfig(DefaultMockMvcBuilder mockMvcModifier) {
+    protected DefaultMockMvcBuilder mockMvcConfig(DefaultMockMvcBuilder mockMvcModifier) {
         return mockMvcModifier;
     }
 

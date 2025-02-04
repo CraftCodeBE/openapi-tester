@@ -32,7 +32,6 @@ class DemoControllerTest extends SpringContextControllerTest {
                         .accept("application/json")
                         .contentType("application/json")
                 )
-                .andDo(print())
                 .andExpect(status().isOk());
     }
 
@@ -53,6 +52,7 @@ class DemoControllerTest extends SpringContextControllerTest {
                 .andDo(print())
                 .andExpect(status().isCreated());
     }
+
 
 
     @Override
