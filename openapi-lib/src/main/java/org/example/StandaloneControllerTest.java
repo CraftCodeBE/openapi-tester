@@ -39,11 +39,11 @@ public abstract class StandaloneControllerTest {
         ).build();
     }
 
-    private OpenApiInteractionValidator.Builder validatorConfig(OpenApiInteractionValidator.Builder validatorModifier) {
+    protected OpenApiInteractionValidator.Builder validatorConfig(OpenApiInteractionValidator.Builder validatorModifier) {
         return validatorModifier;
     }
 
-    private StandaloneMockMvcBuilder mockMvcConfig(StandaloneMockMvcBuilder mockMvcModifier) {
+    protected StandaloneMockMvcBuilder mockMvcConfig(StandaloneMockMvcBuilder mockMvcModifier) {
         return mockMvcModifier;
     }
 
