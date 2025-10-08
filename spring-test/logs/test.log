@@ -1,0 +1,39 @@
+2025-10-03T14:05:17.619+02:00  INFO 23299 --- [main] org.example.DemoControllerTest           : Starting DemoControllerTest using Java 25 with PID 23299 (started by ciaran in /home/ciaran/craftcode/openapi/spring-test)
+2025-10-03T14:05:17.628+02:00 DEBUG 23299 --- [main] org.example.DemoControllerTest           : Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-03T14:05:17.629+02:00  INFO 23299 --- [main] org.example.DemoControllerTest           : No active profile set, falling back to 1 default profile: "default"
+2025-10-03T14:05:17.726+02:00  INFO 23299 --- [main] org.example.DemoControllerTest           : Started DemoControllerTest in 0.38 seconds (process running for 1.132)
+2025-10-03T14:10:20.817+02:00  INFO 27757 --- [main] org.example.DemoControllerTest           : Starting DemoControllerTest using Java 25 with PID 27757 (started by ciaran in /home/ciaran/craftcode/openapi/spring-test)
+2025-10-03T14:10:20.818+02:00 DEBUG 27757 --- [main] org.example.DemoControllerTest           : Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-03T14:10:20.819+02:00  INFO 27757 --- [main] org.example.DemoControllerTest           : No active profile set, falling back to 1 default profile: "default"
+2025-10-03T14:10:20.921+02:00  INFO 27757 --- [main] org.example.DemoControllerTest           : Started DemoControllerTest in 0.363 seconds (process running for 1.182)
+2025-10-03T14:10:21.217+02:00  INFO 27757 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2025-10-03T14:10:21.217+02:00  INFO 27757 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-10-03T14:10:21.300+02:00  INFO 27757 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 83 ms
+2025-10-03T14:11:22.165+02:00  INFO 28789 --- [main] org.example.DemoControllerTest           : Starting DemoControllerTest using Java 25 with PID 28789 (started by ciaran in /home/ciaran/craftcode/openapi/spring-test)
+2025-10-03T14:11:22.166+02:00 DEBUG 28789 --- [main] org.example.DemoControllerTest           : Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-03T14:11:22.167+02:00  INFO 28789 --- [main] org.example.DemoControllerTest           : No active profile set, falling back to 1 default profile: "default"
+2025-10-03T14:11:22.279+02:00  INFO 28789 --- [main] org.example.DemoControllerTest           : Started DemoControllerTest in 0.401 seconds (process running for 1.118)
+2025-10-03T14:11:22.578+02:00  INFO 28789 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2025-10-03T14:11:22.578+02:00  INFO 28789 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-10-03T14:11:22.678+02:00  INFO 28789 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 99 ms
+2025-10-03T14:11:41.802+02:00  INFO 29176 --- [main] org.example.DemoControllerTest           : Starting DemoControllerTest using Java 25 with PID 29176 (started by ciaran in /home/ciaran/craftcode/openapi/spring-test)
+2025-10-03T14:11:41.803+02:00 DEBUG 29176 --- [main] org.example.DemoControllerTest           : Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-03T14:11:41.804+02:00  INFO 29176 --- [main] org.example.DemoControllerTest           : No active profile set, falling back to 1 default profile: "default"
+2025-10-03T14:11:41.913+02:00  INFO 29176 --- [main] org.example.DemoControllerTest           : Started DemoControllerTest in 0.395 seconds (process running for 1.139)
+2025-10-03T14:11:42.221+02:00  INFO 29176 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2025-10-03T14:11:42.221+02:00  INFO 29176 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-10-03T14:11:42.326+02:00  INFO 29176 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 104 ms
+2025-10-03T14:15:12.165+02:00  INFO 33255 --- [main] org.example.DemoControllerTest           : Starting DemoControllerTest using Java 21.0.2 with PID 33255 (started by ciaran in /home/ciaran/craftcode/openapi/spring-test)
+2025-10-03T14:15:12.166+02:00 DEBUG 33255 --- [main] org.example.DemoControllerTest           : Running with Spring Boot v3.4.1, Spring v6.2.1
+2025-10-03T14:15:12.167+02:00  INFO 33255 --- [main] org.example.DemoControllerTest           : No active profile set, falling back to 1 default profile: "default"
+2025-10-03T14:15:12.262+02:00  INFO 33255 --- [main] org.example.DemoControllerTest           : Started DemoControllerTest in 0.349 seconds (process running for 1.02)
+2025-10-03T14:15:12.558+02:00  INFO 33255 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2025-10-03T14:15:12.559+02:00  INFO 33255 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-10-03T14:15:12.636+02:00  INFO 33255 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 77 ms
+2025-10-03T14:16:48.793+02:00  INFO 35100 --- [main] org.example.DemoControllerTest           : Starting DemoControllerTest using Java 25 with PID 35100 (started by ciaran in /home/ciaran/craftcode/openapi/spring-test)
+2025-10-03T14:16:48.795+02:00 DEBUG 35100 --- [main] org.example.DemoControllerTest           : Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-03T14:16:48.795+02:00  INFO 35100 --- [main] org.example.DemoControllerTest           : No active profile set, falling back to 1 default profile: "default"
+2025-10-03T14:16:48.905+02:00  INFO 35100 --- [main] org.example.DemoControllerTest           : Started DemoControllerTest in 0.384 seconds (process running for 1.12)
+2025-10-03T14:16:49.205+02:00  INFO 35100 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2025-10-03T14:16:49.205+02:00  INFO 35100 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-10-03T14:16:49.307+02:00  INFO 35100 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 102 ms
